@@ -11,24 +11,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="736.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="472.0" prefWidth="613.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="237.0" layoutY="199.0" prefHeight="48.0" prefWidth="262.0" promptText="username" styleClass="control" stylesheets="@../../css/style.css">
+      <TextField layoutX="251.0" layoutY="276.0" prefHeight="48.0" prefWidth="262.0" promptText="username" styleClass="control" stylesheets="@css/style.css">
          <font>
             <Font name="Bookman Old Style" size="18.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="237.0" layoutY="267.0" prefHeight="48.0" prefWidth="262.0" promptText="password" styleClass="control" stylesheets="@../../css/style.css">
+      <PasswordField layoutX="251.0" layoutY="344.0" prefHeight="48.0" prefWidth="262.0" promptText="password" styleClass="control" stylesheets="@css/style.css">
          <font>
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button layoutX="378.0" layoutY="339.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Log In" textFill="#dadada">
+      <Button layoutX="392.0" layoutY="416.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Log In" textFill="#dadada">
          <font>
             <Font name="Bell MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="601.0" layoutY="14.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Sign Up" textFill="#dadada">
+      <Button layoutX="531.0" layoutY="14.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Sign Up" textFill="#dadada">
          <opaqueInsets>
             <Insets top="1.0" />
          </opaqueInsets>
@@ -36,6 +36,26 @@
             <Font name="Bell MT Bold" size="22.0" />
          </font>
       </Button>
+      <ImageView blendMode="DARKEN" fitHeight="55.0" fitWidth="49.0" layoutX="175.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="DARKEN" fitHeight="58.0" fitWidth="69.0" layoutX="165.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/password1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="DARKEN" fitHeight="101.0" fitWidth="110.0" layoutX="55.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cat3.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="187.0" fitWidth="368.0" layoutX="182.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cats.jpg" />
+         </image>
+      </ImageView>
    </children>
    <opaqueInsets>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
