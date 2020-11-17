@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="583.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="583.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogInController">
    <children>
       <TextField layoutX="174.0" layoutY="276.0" prefHeight="48.0" prefWidth="262.0" promptText="username" styleClass="control" stylesheets="@css/style.css">
          <font>
@@ -23,7 +23,7 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button layoutX="331.0" layoutY="416.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Log In" textFill="#dadada">
+      <Button layoutX="331.0" layoutY="416.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Log In" textFill="#dadada">
          <font>
             <Font name="Bell MT Bold" size="22.0" />
          </font>
@@ -66,11 +66,8 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </Button>
-      <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="467.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="loading" fitHeight="51.0" fitWidth="58.0" layoutX="467.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/loading.gif" />
          </image>
