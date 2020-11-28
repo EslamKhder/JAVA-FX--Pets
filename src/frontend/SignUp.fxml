@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="signup" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
    <children>
       <TextField layoutX="174.0" layoutY="276.0" prefHeight="48.0" prefWidth="262.0" promptText="username" styleClass="control" stylesheets="@css/style.css">
          <font>
@@ -23,7 +23,7 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button layoutX="331.0" layoutY="565.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Sign Up" textFill="#dadada">
+      <Button layoutX="331.0" layoutY="565.0" mnemonicParsing="false" onAction="#signUp" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Sign Up" textFill="#dadada">
          <font>
             <Font name="Bell MT Bold" size="22.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="445.0" layoutY="20.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Log In" textFill="#dadada">
+      <Button layoutX="445.0" layoutY="20.0" mnemonicParsing="false" onAction="#logInPage" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Log In" textFill="#dadada">
          <opaqueInsets>
             <Insets top="1.0" />
          </opaqueInsets>
@@ -62,7 +62,7 @@
             <Image url="@images/cats.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="98.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="loading" fitHeight="51.0" fitWidth="58.0" layoutX="98.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/loading.gif" />
          </image>

@@ -1,6 +1,5 @@
 package javafxapplication;
 
-import dao.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,14 +15,13 @@ public class JavaFXApplication extends Application{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DatabaseConnection.connect();
-        //launch(args);
+        launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("/frontend/Register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/frontend/Registers.fxml"));
         Scene scene = new Scene(root,600,500);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
