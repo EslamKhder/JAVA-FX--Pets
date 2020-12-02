@@ -5,6 +5,8 @@
         <group>
             <file>file:/D:/netbeans/JavaFXApplication/src/controller/LogInController.java</file>
             <file>file:/D:/netbeans/JavaFXApplication/src/javafxapplication/JavaFXApplication.java</file>
+            <file>file:/D:/netbeans/JavaFXApplication/src/controller/SignupController.java</file>
+            <file>file:/D:/netbeans/JavaFXApplication/src/model/User.java</file>
         </group>
     </open-files>
 </project-private>
