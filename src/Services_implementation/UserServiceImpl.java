@@ -7,6 +7,7 @@ package Services_implementation;
 
 import Services.UserService;
 import dao.UserDao;
+import javax.swing.JOptionPane;
 import model.User;
 
 /**
@@ -23,6 +24,9 @@ public class UserServiceImpl implements UserService{
     
     @Override
     public int login(User use) {
+        if(use.getUsername().trim().isEmpty() || use.getPassword().trim().isEmpty()){
+            return 0;
+        }
         return userDao.signup(use);
     }
 }
