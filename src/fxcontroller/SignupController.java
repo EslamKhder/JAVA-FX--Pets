@@ -1,4 +1,9 @@
-package controller;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package fxcontroller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,13 +24,12 @@ import javafx.util.Duration;
  *
  * @author MBR
  */
-public class LogInController implements Initializable {
+public class SignupController implements Initializable{
+    @FXML
+    private AnchorPane signup;
     
     @FXML
     private ImageView loading;
-    
-    @FXML
-    private AnchorPane login;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,7 +37,17 @@ public class LogInController implements Initializable {
     }
     
     @FXML
-    void loginAction(ActionEvent event) {
+    void logInPage(ActionEvent event) throws IOException {
+        signup.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/frontend/Registers.fxml"));
+        Stage login = new Stage();
+        Scene scene = new Scene(root,600,500);
+        login.setScene(scene);
+        login.setResizable(false);
+        login.show();
+    }
+    @FXML
+    void signUp(ActionEvent event) {
         loading.setVisible(true);
         PauseTransition pt = new PauseTransition();
         pt.setDuration(Duration.seconds(3));
@@ -43,15 +57,4 @@ public class LogInController implements Initializable {
         pt.play();
     }
     
-    @FXML
-    void signUpPage(ActionEvent event) throws IOException {
-        login.getScene().getWindow().hide();
-        
-        Parent root = FXMLLoader.load(getClass().getResource("/frontend/SignUp.fxml"));
-        Stage signup = new Stage();
-        Scene scene = new Scene(root,600,650);
-        signup.setScene(scene);
-        signup.setResizable(false);
-        signup.show();
-    }
 }

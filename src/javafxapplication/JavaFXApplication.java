@@ -1,10 +1,12 @@
 package javafxapplication;
 
+import controller.UserController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.User;
 
 /**
  *
@@ -15,7 +17,12 @@ public class JavaFXApplication extends Application{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+        User user = new User();
+        user.setUsername("ahmed");
+        user.setPassword("12345");
+        UserController uc = new UserController();
+        System.out.println(uc.login(user));
     }
 
     @Override

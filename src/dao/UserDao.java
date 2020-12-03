@@ -27,15 +27,15 @@ public class UserDao {
     public UserDao() {
     }
     
-    public int register(User user){
+    public int signup(User user){
         connection = DatabaseConnection.connect();
         sql = "SELECT username,password FROM USER WHERE username = ? and password = ?";
+        
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPassword());
             resultSet = preparedStatement.executeQuery();
-            resultSet.next();
             if(resultSet.next()){
                 return 1;
             }

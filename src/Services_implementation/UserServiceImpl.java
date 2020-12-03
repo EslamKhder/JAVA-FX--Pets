@@ -23,8 +23,6 @@ public class UserServiceImpl implements UserService{
     
     @Override
     public int login(User use) {
-        return userDao.register(use);
+        return userDao.signup(use);
     }
-
-    
 }
