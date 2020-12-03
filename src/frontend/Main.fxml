@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="login" prefHeight="481.0" prefWidth="583.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogInController">
+<AnchorPane id="AnchorPane" fx:id="login" prefHeight="481.0" prefWidth="583.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView blendMode="DARKEN" fitHeight="74.0" fitWidth="113.0" layoutX="2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
             <image>

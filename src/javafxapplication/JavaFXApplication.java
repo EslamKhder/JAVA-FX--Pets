@@ -29,7 +29,7 @@ public class JavaFXApplication extends Application{
     public void start(Stage primaryStage) throws Exception {
         
         Parent root = FXMLLoader.load(getClass().getResource("/frontend/Login.fxml"));
-        Scene scene = new Scene(root,600,500);
+        Scene scene = new Scene(root,600,530);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
