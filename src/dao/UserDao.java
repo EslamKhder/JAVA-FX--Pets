@@ -23,14 +23,13 @@ public class UserDao {
     private String sql = null;
     private PreparedStatement preparedStatement = null;
     private ResultSet resultSet = null;
-
+    private int result = 0;
     public UserDao() {
     }
     
     public int signup(User user){
         connection = DatabaseConnection.connect();
         sql = "SELECT username,password FROM USER WHERE username = ? and password = ?";
-        
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getUsername());
@@ -43,6 +42,21 @@ public class UserDao {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+    public int register(User user){
+        connection = DatabaseConnection.connect();
+        sql= "INSERT INTO USER (username, password, phone, address) values (?, ?, ?, ?)";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+           preparedStatement.setString(1, user.getUsername());
+           preparedStatement.setString(2, user.getPassword());
+           preparedStatement.setString(3, user.getPhone());
+           preparedStatement.setString(4, user.getAddress());
+           result = preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
     
 }
