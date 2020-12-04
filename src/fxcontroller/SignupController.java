@@ -75,19 +75,20 @@ public class SignupController implements Initializable {
         loading.setVisible(true);
         PauseTransition pt = new PauseTransition();
         pt.setDuration(Duration.seconds(2));
-        User user = new User();
-        user.setUsername(username.getText());
-        user.setPassword(password.getText());
-        user.setPhone(phone.getText());
-        user.setAddress(address.getText());
+        User user = new User(username.getText(),password.getText(),phone.getText(),address.getText());
         UserController uc = new UserController();
         pt.setOnFinished(ev -> {
-            int result = uc.register(user);
-            if(result == 1){
+            if(uc.register(user) == 1){
                 mainPage();
             } else {
                 loading.setVisible(false);
                 invalid.setText("username aleardy exist !");
+                PauseTransition pt1 = new PauseTransition();
+                pt1.setDuration(Duration.seconds(3));
+                pt1.setOnFinished(e -> {
+                    invalid.setText("");
+                });   
+                pt1.play();
             }
         });
         pt.play();
