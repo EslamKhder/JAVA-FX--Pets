@@ -93,7 +93,9 @@ public class SignupController implements Initializable {
             invalid.setText("password must be more than 7 digts");
         } else if (result == 5) {
             invalid.setText("phone must equal 11 digts");
-        } else {
+        } else if (result == 6) {
+            invalid.setText("phone must be only number");
+        }  else {
             loading.setVisible(true);
             pt.setOnFinished(ev -> {
                 loading.setVisible(false);

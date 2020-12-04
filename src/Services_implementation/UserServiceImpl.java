@@ -45,6 +45,12 @@ public class UserServiceImpl implements UserService{
         if(user.getPhone().length() < 11 || user.getPhone().length() > 11){
             return 5;
         }
+        try {
+            Integer.parseInt(user.getPhone());
+        } catch (Exception e) {
+            return 6;
+        }
+        
         return userDao.register(user);
     }
 }
