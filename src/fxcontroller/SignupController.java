@@ -50,7 +50,7 @@ public class SignupController implements Initializable {
 
     @FXML
     private ImageView loading;
-    
+
     @FXML
     private Label invalid;
 
@@ -72,27 +72,44 @@ public class SignupController implements Initializable {
 
     @FXML
     void signUp(ActionEvent event) {
-        loading.setVisible(true);
         PauseTransition pt = new PauseTransition();
         pt.setDuration(Duration.seconds(2));
-        User user = new User(username.getText(),password.getText(),phone.getText(),address.getText());
+        User user = new User(username.getText(), password.getText(), phone.getText(), address.getText());
         UserController uc = new UserController();
-        pt.setOnFinished(ev -> {
-            if(uc.register(user) == 1){
+        int result = uc.register(user);
+
+        if (result == 1) {
+            loading.setVisible(true);
+            pt.setOnFinished(ev -> {
                 mainPage();
-            } else {
+            });
+            pt.play();
+            
+        } else if (result == 2) {
+            invalid.setText("Fileds is Empty");
+        } else if (result == 3) {
+            invalid.setText("usernme must be more than 5 digts");
+        } else if (result == 4) {
+            invalid.setText("password must be more than 7 digts");
+        } else if (result == 5) {
+            invalid.setText("phone must equal 11 digts");
+        } else {
+            loading.setVisible(true);
+            pt.setOnFinished(ev -> {
                 loading.setVisible(false);
                 invalid.setText("username aleardy exist !");
-                PauseTransition pt1 = new PauseTransition();
-                pt1.setDuration(Duration.seconds(3));
-                pt1.setOnFinished(e -> {
-                    invalid.setText("");
-                });   
-                pt1.play();
-            }
+            });
+            pt.play();            
+        }
+
+        PauseTransition pt1 = new PauseTransition();
+        pt1.setDuration(Duration.seconds(5));
+        pt1.setOnFinished(e -> {
+            invalid.setText("");
         });
-        pt.play();
+        pt1.play();
     }
+
     public void mainPage() {
         signup.getScene().getWindow().hide();
         Parent root;

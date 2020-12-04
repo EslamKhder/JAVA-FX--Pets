@@ -32,6 +32,19 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public int signUp(User user) {
+        if(user.getUsername().trim().isEmpty() || user.getPassword().trim().isEmpty() ||
+          user.getPhone().trim().isEmpty() || user.getAddress().trim().isEmpty()){
+            return 2;
+        }
+        if(user.getUsername().length() < 5){
+            return 3;
+        }
+        if(user.getPassword().length() < 7){
+            return 4;
+        }
+        if(user.getPhone().length() < 11 || user.getPhone().length() > 11){
+            return 5;
+        }
         return userDao.register(user);
     }
 }
