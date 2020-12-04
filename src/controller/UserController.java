@@ -24,4 +24,8 @@ public class UserController {
     public int login(User user){
         return userServiceImpl.login(user);
     }
+    
+    public int register(User user){
+        return userServiceImpl.signUp(user);
+    }
 }

@@ -18,15 +18,15 @@ public class JavaFXApplication extends Application{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //launch(args);
-        User user = new User();
-        user.setUsername("eslam");
-        user.setPassword("12345");
-        user.setPhone("01113903660");
-        user.setAddress("shibeen");
-        //UserController uc = new UserController();
-        UserDao dao = new UserDao();
-        System.out.println(dao.register(user));
+        launch(args);
+//        User user = new User();
+//        user.setUsername("eslam");
+//        user.setPassword("12345");
+//        user.setPhone("01113903660");
+//        user.setAddress("shibeen");
+//        UserController uc = new UserController();
+//        UserDao dao = new UserDao();
+//        System.out.println(dao.register(user));
     }
 
     @Override

@@ -13,17 +13,17 @@
 
 <AnchorPane id="AnchorPane" fx:id="signup" prefHeight="649.0" prefWidth="579.0" style="-fx-background-color: white, #706897;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcontroller.SignupController">
    <children>
-      <TextField layoutX="174.0" layoutY="276.0" prefHeight="48.0" prefWidth="262.0" promptText="username" styleClass="control" stylesheets="@css/style.css">
+      <TextField fx:id="username" layoutX="174.0" layoutY="276.0" prefHeight="48.0" prefWidth="262.0" promptText="username" styleClass="control" stylesheets="@css/style.css">
          <font>
             <Font name="Bookman Old Style" size="18.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="174.0" layoutY="344.0" prefHeight="48.0" prefWidth="262.0" promptText="password" styleClass="control" stylesheets="@css/style.css">
+      <PasswordField fx:id="password" layoutX="174.0" layoutY="344.0" prefHeight="48.0" prefWidth="262.0" promptText="password" styleClass="control" stylesheets="@css/style.css">
          <font>
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button layoutX="331.0" layoutY="565.0" mnemonicParsing="false" onAction="#signUp" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Sign Up" textFill="#dadada">
+      <Button layoutX="332.0" layoutY="578.0" mnemonicParsing="false" onAction="#signUp" prefHeight="48.0" prefWidth="121.0" style="-fx-background-color: white,#706897;" text="Sign Up" textFill="#dadada">
          <font>
             <Font name="Bell MT Bold" size="22.0" />
          </font>
@@ -62,17 +62,17 @@
             <Image url="@images/cats.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="loading" fitHeight="51.0" fitWidth="58.0" layoutX="98.0" layoutY="564.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="loading" fitHeight="51.0" fitWidth="58.0" layoutX="480.0" layoutY="577.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/loading.gif" />
          </image>
       </ImageView>
-      <TextField layoutX="174.0" layoutY="423.0" prefHeight="48.0" prefWidth="262.0" promptText="phone" styleClass="control" stylesheets="@css/style.css">
+      <TextField fx:id="phone" layoutX="174.0" layoutY="423.0" prefHeight="48.0" prefWidth="262.0" promptText="phone" styleClass="control" stylesheets="@css/style.css">
          <font>
             <Font name="Bookman Old Style" size="18.0" />
          </font>
       </TextField>
-      <TextField layoutX="174.0" layoutY="497.0" prefHeight="48.0" prefWidth="262.0" promptText="address" styleClass="control" stylesheets="@css/style.css">
+      <TextField fx:id="address" layoutX="174.0" layoutY="497.0" prefHeight="48.0" prefWidth="262.0" promptText="address" styleClass="control" stylesheets="@css/style.css">
          <font>
             <Font name="Bookman Old Style" size="18.0" />
          </font>
@@ -87,6 +87,11 @@
             <Image url="@images/address.png" />
          </image>
       </ImageView>
+      <Label fx:id="invalid" alignment="CENTER" layoutX="105.0" layoutY="580.0" prefHeight="45.0" prefWidth="219.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
    <opaqueInsets>
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
