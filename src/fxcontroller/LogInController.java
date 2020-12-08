@@ -103,7 +103,7 @@ public class LogInController implements Initializable {
         login.getScene().getWindow().hide();
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("/frontend/ForgotPassword.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/frontend/Forgot-Password.fxml"));
             Stage mainPage = new Stage();
             Scene scene = new Scene(root, 600, 400);
             mainPage.setScene(scene);

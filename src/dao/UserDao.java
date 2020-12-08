@@ -58,5 +58,37 @@ public class UserDao {
         }
         return result;
     }
+     public int getUserByFirstDigts(User user){
+        connection = DatabaseConnection.connect();
+        sql= "SELECT password FROM USER WHERE username = ? and password LIKE ?";
+        try {
+           preparedStatement = connection.prepareStatement(sql);
+           preparedStatement.setString(1, user.getUsername());
+           preparedStatement.setString(2, user.getPassword() + "%");
+           resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+     public int getUserByLastDigts(User user){
+        connection = DatabaseConnection.connect();
+        sql= "SELECT password FROM USER WHERE username = ? and password like ?";
+        try {
+           preparedStatement = connection.prepareStatement(sql);
+           preparedStatement.setString(1, user.getUsername());
+           preparedStatement.setString(2, "%" + user.getPassword());
+           resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                return 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     
 }
