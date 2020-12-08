@@ -6,17 +6,23 @@
 package fxcontroller;
 
 import controller.UserController;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.User;
 
@@ -49,6 +55,12 @@ public class ForgotPassword implements Initializable {
 
     @FXML
     private TextField username;
+    
+    @FXML
+    private Button done;
+    
+    @FXML
+    private Button finish;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,6 +69,7 @@ public class ForgotPassword implements Initializable {
         last.setDisable(true);
         lastDigts.setDisable(true);
         newpassword.setVisible(false);
+        finish.setVisible(false);
     }
 
     @FXML
@@ -113,6 +126,19 @@ public class ForgotPassword implements Initializable {
             firstDigts.setDisable(false);
         }
     }
+    @FXML
+    void finish(ActionEvent event) throws IOException {
+        User user = new User(username.getText(), newpassword.getText());
+        UserController uc = new UserController();
+        uc.editUserPassword(user);
+        getPassword.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("/frontend/Main.fxml"));
+        Stage login = new Stage();
+        Scene scene = new Scene(root, 600, 500);
+        login.setScene(scene);
+        login.setResizable(false);
+        login.show();
+    }
 
     public void disabled() {
         first.setDisable(true);
@@ -121,6 +147,9 @@ public class ForgotPassword implements Initializable {
         lastDigts.setDisable(true);
         username.setDisable(true);
         firstDigts.setDisable(true);
+        done.setVisible(false);
+        finish.setVisible(true);
+        
     }
 
     public void invalidData() {

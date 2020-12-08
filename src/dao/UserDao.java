@@ -91,8 +91,9 @@ public class UserDao {
         sql= "UPDATE USER SET password = ? WHERE username = ?";
         try {
             preparedStatement = connection.prepareStatement(sql);
-           preparedStatement.setString(1, user.getUsername());
-           preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(1, user.getPassword());
+           preparedStatement.setString(2, user.getUsername());
+           
            result = preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
