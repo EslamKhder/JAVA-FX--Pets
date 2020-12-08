@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javax.swing.JOptionPane;
 import model.User;
 
 /**
@@ -91,6 +90,22 @@ public class LogInController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/frontend/Main.fxml"));
             Stage mainPage = new Stage();
             Scene scene = new Scene(root, 600, 650);
+            mainPage.setScene(scene);
+            mainPage.setResizable(false);
+            mainPage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    void newPassword(ActionEvent event) {
+        login.getScene().getWindow().hide();
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/frontend/ForgotPassword.fxml"));
+            Stage mainPage = new Stage();
+            Scene scene = new Scene(root, 600, 400);
             mainPage.setScene(scene);
             mainPage.setResizable(false);
             mainPage.show();
