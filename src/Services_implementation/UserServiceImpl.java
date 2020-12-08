@@ -53,4 +53,14 @@ public class UserServiceImpl implements UserService{
         
         return userDao.register(user);
     }
+
+    @Override
+    public int getUserByFirstDigts(User user) {
+        return userDao.getUserByFirstDigts(user);
+    }
+
+    @Override
+    public int getUserByLastDigts(User user) {
+        return userDao.getUserByLastDigts(user);
+    }
 }

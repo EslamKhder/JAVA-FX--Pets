@@ -28,4 +28,12 @@ public class UserController {
     public int register(User user){
         return userServiceImpl.signUp(user);
     }
+    
+    public int getUserByFirstDigts(User user) {
+        return userServiceImpl.getUserByFirstDigts(user);
+    }
+
+    public int getUserByLastDigts(User user) {
+        return userServiceImpl.getUserByLastDigts(user);
+    }
 }

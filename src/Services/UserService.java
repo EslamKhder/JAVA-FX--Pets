@@ -14,4 +14,6 @@ import model.User;
 public interface UserService {
     public int login(User use);
     public int signUp(User user);
+    public int getUserByFirstDigts(User user);
+    public int getUserByLastDigts(User user);
 }
