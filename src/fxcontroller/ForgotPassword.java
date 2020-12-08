@@ -5,6 +5,7 @@
  */
 package fxcontroller;
 
+import controller.UserController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.PauseTransition;
@@ -14,8 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import model.User;
 
 /**
  *
@@ -41,16 +44,25 @@ public class ForgotPassword implements Initializable {
     @FXML
     private Label result;
 
+    @FXML
+    private PasswordField newpassword;
+
+    @FXML
+    private TextField username;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         first.setSelected(true);
         last.setDisable(true);
         last.setDisable(true);
         lastDigts.setDisable(true);
+        newpassword.setVisible(false);
     }
 
     @FXML
     void done(ActionEvent event) {
+        UserController us = new UserController();
+        User user;
         if (!first.isSelected() && !last.isSelected()) { // !false  !false
             result.setText("you must chech one only");
             PauseTransition pt = new PauseTransition();
@@ -62,9 +74,21 @@ public class ForgotPassword implements Initializable {
             return;
         }
         if (first.isSelected()) {
-            System.out.println(firstDigts.getText());
+            user = new User(username.getText(), firstDigts.getText());
+            if (us.getUserByFirstDigts(user) == 1) {
+                newpassword.setVisible(true);
+                disabled();
+            } else {
+                invalidData();
+            }
         } else {
-            System.out.println(lastDigts.getText());
+            user = new User(username.getText(), lastDigts.getText());
+            if (us.getUserByLastDigts(user) == 1) {
+                newpassword.setVisible(true);
+                disabled();
+            } else {
+                invalidData();
+            }
         }
     }
 
@@ -88,5 +112,24 @@ public class ForgotPassword implements Initializable {
             first.setDisable(false);
             firstDigts.setDisable(false);
         }
+    }
+
+    public void disabled() {
+        first.setDisable(true);
+        last.setDisable(true);
+        last.setDisable(true);
+        lastDigts.setDisable(true);
+        username.setDisable(true);
+        firstDigts.setDisable(true);
+    }
+
+    public void invalidData() {
+        result.setText("Invalid Data");
+        PauseTransition pt = new PauseTransition();
+        pt.setDuration(Duration.seconds(2));
+        pt.setOnFinished(ev -> {
+            result.setText("");
+        });
+        pt.play();
     }
 }

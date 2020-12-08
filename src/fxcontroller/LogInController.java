@@ -105,7 +105,7 @@ public class LogInController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource("/frontend/Forgot-Password.fxml"));
             Stage mainPage = new Stage();
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 600, 600);
             mainPage.setScene(scene);
             mainPage.setResizable(false);
             mainPage.show();
