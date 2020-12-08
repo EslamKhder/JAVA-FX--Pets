@@ -16,4 +16,5 @@ public interface UserService {
     public int signUp(User user);
     public int getUserByFirstDigts(User user);
     public int getUserByLastDigts(User user);
+    public int editUserPassword(User user);
 }

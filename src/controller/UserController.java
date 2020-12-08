@@ -36,4 +36,7 @@ public class UserController {
     public int getUserByLastDigts(User user) {
         return userServiceImpl.getUserByLastDigts(user);
     }
+    public int editUserPassword(User user){
+        return userServiceImpl.editUserPassword(user);
+    }
 }

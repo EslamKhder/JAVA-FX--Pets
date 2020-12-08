@@ -12,6 +12,7 @@ import model.User;
  *
  * @author MBR
  */
+/* */
 public class UserDao {
     
     private Connection connection = null;
@@ -85,5 +86,17 @@ public class UserDao {
         }
         return 0;
     }
-    
+    public int editUserPassword(User user){
+        connection = DatabaseConnection.connect();
+        sql= "UPDATE USER SET password = ? WHERE username = ?";
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+           preparedStatement.setString(1, user.getUsername());
+           preparedStatement.setString(2, user.getPassword());
+           result = preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
 }

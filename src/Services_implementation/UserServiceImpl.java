@@ -63,4 +63,9 @@ public class UserServiceImpl implements UserService{
     public int getUserByLastDigts(User user) {
         return userDao.getUserByLastDigts(user);
     }
+
+    @Override
+    public int editUserPassword(User user) {
+        return userDao.editUserPassword(user);
+    }
 }
